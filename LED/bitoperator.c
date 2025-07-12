@@ -22,7 +22,7 @@ int main(void)
 		
 	while(1) {
 		
-		_delay_ms(100);
+		_delay_ms(1000);
 		
 		PORTA = bitOperator;
 		
@@ -37,13 +37,8 @@ int main(void)
 		} else {
 			bitOperator = bitOperator << 1;
 		}
-		
-		int temp = bitOperator;
-		
-
 	
 	}
 
 }
-
 

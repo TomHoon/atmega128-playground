@@ -18,32 +18,25 @@ int main(void)
 	DDRA = 0xff;
 	
 	int flag = 0;
-	int bitOperator = 0x01;
 		
 	while(1) {
 		
 		_delay_ms(100);
 		
-		PORTA = bitOperator;
-		
-		if (bitOperator == 0x01) {
+		if (flag > 0) {
+			// 0000 0000
+			// 1 + 2 + 4 + 8
+			// 128 + 64 + 32 + 16
+			// 144 + 96
+			// 240
+			// 15
 			flag = 0;
-		} else if (bitOperator == 0x80){
-			flag = 1;
-		}
-	
-		if (flag == 1) {
-			bitOperator = bitOperator >> 1;
+			PORTA = 0x0f;
 		} else {
-			bitOperator = bitOperator << 1;
+			flag = 1;
+			PORTA = 0xf0;
 		}
-		
-		int temp = bitOperator;
-		
-
-	
 	}
 
 }
-
 
